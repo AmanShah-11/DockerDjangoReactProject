@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "rest_auth",
+    "corsheaders",
     "prediction",
     "users",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -133,3 +135,8 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+#################################################################
+##  (CORS) Cross-Origin Resource Sharing Settings ##
+#################################################################
+CORS_ORIGIN_ALLOW_ALL = True
